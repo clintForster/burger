@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+
+                <h1>Eat-Da-Burger!</h1>
+
+                <form class="form">
+                    <p>Enter a burger you would like to eat:</p>
+                    <input type="text" name="name" id="burgerName"><br>
+                    <br>
+                    <p>Has this burger been devoured?</p>
+                    <input type="checkbox" name="devoured" value="1" checked> Devoured!<br>
+                    <br>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p>Undevoured</p>
+            {{#each burger}}
+            {{#unless devoured}}
+            {{this.id}})
+            {{burger_name}}
+            <button class="devoured btn btn-primary" data-id="{{id}}" data-newdevoured="{{devoured}}">
+                {{#if devoured}}DEVOURED!{{else}}Devour{{/if}}
+            </button><br>
+            {{/unless}}
+            {{/each}}
+        </div>
+        <div class="col-md-6">
+            <p>Devoured</p>
+            {{#each burger}}
+            {{#if devoured}}
+            {{this.id}})
+            {{this.burger_name}}
+            <button class="devoured btn btn-primary" data-id="{{id}}" data-newdevoured="{{devoured}}">
+                {{#if devoured}}DEVOURED!{{else}}Devour{{/if}}
+            </button><br>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
